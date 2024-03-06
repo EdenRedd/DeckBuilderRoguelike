@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - UpArrow
+  - DownArrow
+  - LeftArrow
+  - RightArrow
   layers:
   - Default
   - TransparentFX

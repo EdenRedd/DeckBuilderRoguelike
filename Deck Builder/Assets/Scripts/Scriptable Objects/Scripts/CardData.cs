@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : ScriptableObject
+[CreateAssetMenu]
+public class CardData : ScriptableObject
 {
     public List<KeyCode> pattern = new List<KeyCode>();
     public float timeLimit;

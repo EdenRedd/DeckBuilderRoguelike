@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArrowBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    Color greenColor;
+
+    [SerializeField]
+    Color greyColor;
+    public void TurnGreen()
     {
+        this.gameObject.GetComponent<Image>().color = greenColor;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TurnGrey()
     {
-        
+        this.gameObject.GetComponent<Image>().color = greyColor;
     }
 }
