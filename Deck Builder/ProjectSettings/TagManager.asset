@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - UpArrow
-  - DownArrow
-  - LeftArrow
-  - RightArrow
+  - Deck
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This script should initiate the testing to see which cards the player will draw successfully
+ * In the future should change the effect sort of then show all the upcoming cards patterns
+ */
 public class InputVerifier : MonoBehaviour
 {
     public List<KeyCode> arrowList = new List<KeyCode>();
