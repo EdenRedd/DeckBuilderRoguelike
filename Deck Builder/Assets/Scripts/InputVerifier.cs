@@ -5,6 +5,10 @@ using UnityEngine;
 /**
  * This script should initiate the testing to see which cards the player will draw successfully
  * In the future should change the effect sort of then show all the upcoming cards patterns
+ * 
+ * The encounter manager will call upon the input verifier to start the sequence of checking the patterns 
+ * and the player's input of the pattern
+ * 
  */
 public class InputVerifier : MonoBehaviour
 {
@@ -16,8 +20,8 @@ public class InputVerifier : MonoBehaviour
 
     private void Start()
     {
-        arrowList = currentCard.cardData.pattern;
-        currentPattern = currentCard.transform.GetChild(0).gameObject;
+        //arrowList = currentCard.cardData.pattern;
+        //currentPattern = currentCard.transform.GetChild(0).gameObject;
     }
 
     void OnGUI()

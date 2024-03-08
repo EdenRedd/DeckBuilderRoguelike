@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Card will be the entity of a card this will hold the animator
+ * hold the data for the card and will act like an instance of a card
+ * because it will be a gameobject
+ * 
+ * This should be attached to the gameobject prefab
+ */
 public class Card : MonoBehaviour
 {
     [SerializeField]

@@ -16,8 +16,13 @@ public class EncounterManager : MonoBehaviour
 {
     public static EncounterManager instance { get; set; }
 
+    public GameEvent onDrawCards;
+
+    public int cardDrawAmount = 3;
     public bool isPlayerTurn;
-    public GameObject cardPrefab;
+
+    private Deck playerDeck;
+
 
     private void Awake()
     {
@@ -32,4 +37,17 @@ public class EncounterManager : MonoBehaviour
     }
 
 
+    public void GenerateStartingHandAndDeck()
+    {
+        playerDeck = GameObject.FindGameObjectWithTag("Deck").GetComponent<Deck>();
+        //Hit the deck with a shuffle
+        var playerHand = new List<GameObject>();
+
+        for (int i = 0; i < cardDrawAmount; i++)
+        {
+            playerHand.Add(playerDeck.cardsInDeck[i]);
+        }
+
+        onDrawCards.RaiseSignal(this, playerHand);
+    }
 }

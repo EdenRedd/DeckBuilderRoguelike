@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * This script holds the logic to be applied to the displayed arrows
+ * 
+ * This script should be attached to the arrow prefab
+ */
 public class ArrowBehavior : MonoBehaviour
 {
     [SerializeField]

@@ -23,6 +23,8 @@ public class Manager : MonoBehaviour
 
     public GameObject cardPrefab;
 
+    public GameEvent onStartOfEncounter;
+
     private void Awake()
     {
         //Ensures that this component lives throughout scenes and destroys other gameobjects with this script attached.
@@ -39,22 +41,31 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
+        //Starter deck but right now is just being added manually like this because we do not have a map scene
         overallDeck.Add(Resources.Load<CardData>("Cards/Card 1"));
         overallDeck.Add(Resources.Load<CardData>("Cards/Card 2"));
         overallDeck.Add(Resources.Load<CardData>("Cards/Card 3"));
         overallDeck.Add(Resources.Load<CardData>("Cards/Card 4"));
         GeneratePlayerDeckForEncounter();
+
+        onStartOfEncounter.RaiseSignal(this, null);
     }
 
+    /**
+     * Generates all card gameobjects based on the 
+     * overall deck cardData then adds them all to the
+     * encounter deck.
+     */
     void GeneratePlayerDeckForEncounter()
     {
+        var playerDeck = GameObject.FindGameObjectWithTag("Deck").GetComponent<Deck>();
         Transform deckTransform = GameObject.FindGameObjectWithTag("Deck").transform;
-        Debug.Log(deckTransform.gameObject.name);
         for (int i = 0; i < overallDeck.Count; i++)
         {
             var card = GameObject.Instantiate(cardPrefab);
             card.transform.parent = deckTransform;
             card.GetComponent<Card>().cardData = overallDeck[i];
+            playerDeck.cardsInDeck.Add(card);
         }
     }
 }
