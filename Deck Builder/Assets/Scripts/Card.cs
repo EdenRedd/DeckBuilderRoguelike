@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,32 @@ public class Card : MonoBehaviour
     [SerializeField]
     public CardData cardData;
 
+
     private void Start()
     {
         GeneratePatternGameObjects();
+    }
+
+
+    public void CardIsSelected(Component sender, object data)
+    {
+        if(data is GameObject && data == this.gameObject)
+        {
+            //Makes the gameObject follow the mouse.
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            mousePos.z = 0;
+            this.gameObject.transform.position = mousePos;
+        }
+    }
+    void Update()
+    {
+        
+
+        //if (isFollowingMouse)
+        //{
+        
+        //}
     }
 
     public void GeneratePatternGameObjects()
