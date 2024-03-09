@@ -15,4 +15,4 @@ MonoBehaviour:
   pattern: 12010000120100001201000012010000
   timeLimit: 0
   cost: 0
-  effect: 0
+  effect: 4

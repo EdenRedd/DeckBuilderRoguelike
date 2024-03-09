@@ -17,6 +17,7 @@ public class EncounterManager : MonoBehaviour
     public static EncounterManager instance { get; set; }
 
     public GameEvent onDrawCards;
+    public GameEvent onCardUse;
 
     public int cardDrawAmount = 3;
     public bool isPlayerTurn;
@@ -49,5 +50,22 @@ public class EncounterManager : MonoBehaviour
         }
 
         onDrawCards.RaiseSignal(this, playerHand);
+    }
+
+
+    public void handleCardLogic(Component sender, object data)
+    {
+        if(data is GameObject)
+        {
+            var gameObject = (GameObject)data;
+
+            //Send a signal to the input verifier
+            //send signal to the player if it takes damage from the card use or gains armor
+            //send signal to the enemy taking damage
+            onCardUse.RaiseSignal(this, gameObject);
+
+            Debug.Log(gameObject.GetComponent<Card>().cardData.effect);
+        }
+        
     }
 }
